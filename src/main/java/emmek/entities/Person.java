@@ -24,13 +24,12 @@ public class Person {
     public Person() {
     }
 
-    public Person(String name, String surname, String email, LocalDate birthDate, Sex sex, Set<Participation> participations) {
+    public Person(String name, String surname, String email, LocalDate birthDate, Sex sex) {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.birthDate = birthDate;
         this.sex = sex;
-        this.participations = participations;
     }
 
     public long getId() {

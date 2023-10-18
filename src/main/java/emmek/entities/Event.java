@@ -36,12 +36,13 @@ public class Event {
     public Event() {
     }
 
-    public Event(String title, LocalDate eventDate, String description, EventType eventType, int maxParticipants) {
+    public Event(String title, LocalDate eventDate, String description, EventType eventType, int maxParticipants, Location location) {
         this.title = title;
         this.eventDate = eventDate;
         this.description = description;
         this.eventType = eventType;
         this.maxParticipants = maxParticipants;
+        this.location = location;
     }
 
     public long getId() {
