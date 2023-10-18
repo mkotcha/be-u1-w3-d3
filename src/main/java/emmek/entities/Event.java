@@ -2,6 +2,7 @@ package emmek.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "events")
@@ -24,6 +25,13 @@ public class Event {
 
     @Column(name = "max_participants")
     private int maxParticipants;
+
+    @OneToMany(mappedBy = "event")
+    private Set<Participation> participations;
+
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
 
     public Event() {
     }
@@ -78,5 +86,22 @@ public class Event {
 
     public void setMaxParticipants(int maxParticipants) {
         this.maxParticipants = maxParticipants;
+    }
+
+
+    public Set<Participation> getParticipations() {
+        return participations;
+    }
+
+    public void setParticipations(Set<Participation> participations) {
+        this.participations = participations;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }

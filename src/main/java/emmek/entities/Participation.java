@@ -54,4 +54,6 @@ public class Participation {
     public void setParticipationState(ParticipationState participationState) {
         this.participationState = participationState;
     }
+
+
 }

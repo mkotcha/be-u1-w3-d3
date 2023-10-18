@@ -85,4 +85,6 @@ public class Person {
     public void setParticipations(Set<Participation> participations) {
         this.participations = participations;
     }
+
+
 }
