@@ -18,7 +18,6 @@ public class Participation {
     @JoinColumn(name = "event_id")
     private Event event;
 
-
     @Enumerated(EnumType.STRING)
     @Column(name = "state")
     private ParticipationState participationState;
@@ -29,6 +28,13 @@ public class Participation {
     public Participation(Person person, Event event) {
         this.person = person;
         this.event = event;
+        this.participationState = ParticipationState.TBC;
+    }
+
+    public Participation(Person person, Event event, ParticipationState participationState) {
+        this.person = person;
+        this.event = event;
+        this.participationState = participationState;
     }
 
     public Event getEvent() {

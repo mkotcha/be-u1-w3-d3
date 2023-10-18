@@ -1,9 +1,7 @@
 package emmek.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "locations")
@@ -15,6 +13,10 @@ public class Location {
     private String name;
 
     private String city;
+
+    @OneToMany(mappedBy = "location", cascade = CascadeType.REMOVE)
+    private Set<Event> events;
+
 
     public Location(String name, String city) {
         this.name = name;
@@ -44,5 +46,11 @@ public class Location {
         return id;
     }
 
+    public Set<Event> getEvents() {
+        return events;
+    }
 
+    public void setEvents(Set<Event> events) {
+        this.events = events;
+    }
 }

@@ -26,7 +26,7 @@ public class Event {
     @Column(name = "max_participants")
     private int maxParticipants;
 
-    @OneToMany(mappedBy = "event")
+    @OneToMany(mappedBy = "event", cascade = CascadeType.REMOVE)
     private Set<Participation> participations;
 
     @ManyToOne

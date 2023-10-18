@@ -18,7 +18,7 @@ public class Person {
     @Enumerated(EnumType.STRING)
     private Sex sex;
     @OrderBy("eventDate")
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "person", cascade = CascadeType.REMOVE)
     private Set<Participation> participations;
 
     public Person() {
