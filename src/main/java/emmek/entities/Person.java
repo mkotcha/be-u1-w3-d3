@@ -1,8 +1,9 @@
 package emmek.entities;
 
+
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "persons")
@@ -10,24 +11,20 @@ public class Person {
     @Id
     @GeneratedValue
     private long id;
-
     private String name;
-
     private String surname;
     private String email;
-
     private LocalDate birthDate;
-
     @Enumerated(EnumType.STRING)
     private Sex sex;
-
     @OrderBy("eventDate")
-    private List<Participation> participations;
+    @OneToMany(mappedBy = "person")
+    private Set<Participation> participations;
 
     public Person() {
     }
 
-    public Person(String name, String surname, String email, LocalDate birthDate, Sex sex, List<Participation> participations) {
+    public Person(String name, String surname, String email, LocalDate birthDate, Sex sex, Set<Participation> participations) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -81,11 +78,11 @@ public class Person {
         this.sex = sex;
     }
 
-    public List<Participation> getParticipations() {
+    public Set<Participation> getParticipations() {
         return participations;
     }
 
-    public void setParticipations(List<Participation> participations) {
+    public void setParticipations(Set<Participation> participations) {
         this.participations = participations;
     }
 }
